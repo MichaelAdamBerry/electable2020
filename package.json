@@ -1,5 +1,5 @@
 {
-  "name": "svelte-app",
+  "name": "eleftable",
   "version": "1.0.0",
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.2",

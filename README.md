@@ -14,8 +14,6 @@ Users can sign in, plot candidates to grid, view results and submit scores.
 
 ## TODO
 
-- Responsive design for tablet and desktop. Current styles are for mobile. Best to use dev tools to view mobile layout or view on phone.
-
-- Submitting candidate scores should lead to a view of aggregated content and latest polling data.
-
 - Integration tests using svelte testing library
+
+- Routing. Single page app so back button exits page. Make routes for login, landing, survey, score, and results so user can navigate as expected
