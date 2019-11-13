@@ -12,7 +12,7 @@
 
   //array of candidate objects
   export let data;
-  export let w;
+
   export let status;
   export let renderedImages;
   export let updateSurvey;
@@ -21,35 +21,31 @@
   $: i = 0;
   $: active = data[i] ? data[i] : data[0];
 
-  let startPos = {
-    x: w / 2
-  };
+  // intital width of board set to 300 - clientWidth of boardWrapperDiv bound to w
+  $: w = 300;
 
-  //survey status
-  // reactive value that triggers modal, survey active or static, static view to be user results or total results
-  // status values = "started", "completed", "allResults", "myResults"
-
-  //Create D3 linear scales for points to percentage and percentage to point
-  const toPctX = scaleLinear()
-    .domain([0, w])
-    .range([0, 100]);
-
-  const toPctY = scaleLinear()
-    .domain([0, w])
-    .range([100, 0]);
-
-  const toPntX = scaleLinear()
-    .domain([0, 100])
-    .range([0, w]);
-  const toPntY = scaleLinear()
-    .domain([0, 100])
-    .range([w, 0]);
-
-  //called on pointer event inside board wrapper div
-  //add score property to data array
-  //creates a new object and adds to renderedImages array
-  //increments i variable
+  //Function called on pointer event inside board wrapper div
+  //It adds score property to data array
+  //And pushes new object to renderedImages array
+  //Increments i variable
+  //When i > data.length updates status of App to "complete"
   function handleBoardPress(e) {
+    //Create D3 linear scales for points to percentage and percentage to point
+    const toPctX = scaleLinear()
+      .domain([0, w])
+      .range([0, 100]);
+
+    const toPctY = scaleLinear()
+      .domain([0, w])
+      .range([100, 0]);
+
+    const toPntX = scaleLinear()
+      .domain([0, 100])
+      .range([0, w]);
+    const toPntY = scaleLinear()
+      .domain([0, 100])
+      .range([w, 0]);
+
     //if survey not active  return
     if (status != "started") {
       return;
@@ -294,10 +290,13 @@
       {/each}
     </div>
     {#if status != null}
-      <div class="board-wrapper" on:pointerdown={e => handleBoardPress(e)}>
+      <div
+        bind:clientWidth={w}
+        class="board-wrapper"
+        on:pointerdown={e => handleBoardPress(e)}>
         {#each renderedImages as reimg}
           <div
-            in:fly={{ duration: 600, x: startPos.x - reimg.x, y: reimg.y * -1 - 100, easing: quartInOut, opacity: 1 }}
+            in:fly={{ duration: 600, x: w / 2 - reimg.x, y: reimg.y * -1 - 100, easing: quartInOut, opacity: 1 }}
             class="renderedDiv"
             style="transform: translate({reimg.x}px, {reimg.y}px);">
             <img class="renderedImg" src={reimg.src} alt={reimg.n} />

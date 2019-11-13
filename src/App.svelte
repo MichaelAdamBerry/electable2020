@@ -9,7 +9,7 @@
   import Popup from "./Popup.svelte";
   import Score from "./Score.svelte";
   import DropDown from "./DropDown.svelte";
-  let w;
+
   let loaded = false;
   $: sorted = { x: [], y: [] };
   $: status = null;
@@ -230,20 +230,19 @@
   {#if !user}
     <Login {login} />
   {:else}
-    <main bind:clientWidth={w}>
+    <main>
       <TopBar {status} {toggleDropDown} />
       {#if showDropDown}
         <DropDown {signOut} {user} />
       {/if}
       {#if status === null}
-        <Popup {w} {status} {updateSurvey} {data} />
+        <Popup {status} {updateSurvey} {data} />
       {:else if status === 'started'}
         <div>
           <Plot
             {data}
             {sorted}
             {status}
-            {w}
             {renderedImages}
             {data}
             {updateSurvey} />

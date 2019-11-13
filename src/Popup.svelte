@@ -8,7 +8,7 @@
   export let updateSurvey;
   export let status;
   export let data;
-  export let w;
+
   let about = false;
 </script>
 
