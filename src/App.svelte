@@ -20,6 +20,8 @@
     {
       key: "booker",
       in_next_debate: true,
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573762942/cory-booker-removebg-preview_mqb4dt.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676804/icon/AP_18235542761934-768x516-removebg-preview_uc82ph.png",
       candidateName: "Cory Booker",
@@ -30,6 +32,8 @@
       key: "biden",
       in_next_debate: true,
       candidateName: "Joe Biden",
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573763140/SJ7ACOHJMNBYTKCQMRDUVUV45Q-removebg-preview_o2bp4p.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676704/icon/joe-cool-removebg-preview_heqqiw.png",
       src:
@@ -39,6 +43,8 @@
       key: "warren",
       in_next_debate: true,
       candidateName: "Elizabeth Warren",
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573763021/sad-and-stupid-elizabeth-warren_thumb_1_-removebg-preview_e72ntk.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676232/1000x-1-removebg-preview_esssmz.png",
       src:
@@ -48,6 +54,8 @@
       key: "harris",
       in_next_debate: true,
       candidateName: "Kamala Harris",
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573762874/105707079-1548791693313rts2ck6h-removebg-preview_df1qur.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676422/rs-kamala-harris-2e88a6ad-c1ad-4e59-b091-5b25c2f39163-removebg-preview_ffxdza.png",
       src:
@@ -57,6 +65,8 @@
       key: "buttigieg",
       in_next_debate: true,
       candidateName: "Pete Buttigieg",
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573762824/5c2525e3bffae-removebg-preview_bydans.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573077214/icon/Pete-Buttigieg-1-removebg-preview_i8mbkc.png",
       src:
@@ -66,6 +76,8 @@
     {
       key: "yang",
       in_next_debate: true,
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573762975/democratic-presidential-candidate-former-tech-executive-news-photo-1568338605-removebg-preview_gfxrjd.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573077345/icon/andrew-yang-houston-debate-removebg-preview_zobbdu.png",
       candidateName: "Andrew Yang",
@@ -77,6 +89,8 @@
       key: "gabbard",
       in_next_debate: true,
       candidateName: "Tulsi Gabbard",
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573763252/tulsi-gabbard-everyone-russian-asset-removebg-preview_jt1a3v.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573077498/icon/gettyimages-1139098772-612x612-removebg-preview_nuyc6t.png",
       src:
@@ -105,6 +119,8 @@
       key: "steyer",
       in_next_debate: true,
       candidateName: "Tom Steyer",
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573763182/tom-steyer-4671-removebg-preview_a1ifua.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573077967/icon/Election_2020_Democrats_12995-removebg-preview_sh09by.png",
       src:
@@ -114,6 +130,8 @@
       key: "sanders",
       in_next_debate: true,
       candidateName: "Bernie Sanders",
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573763064/sandersbernie_sad_getty_-removebg-preview_rxxvg2.png",
       winImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573078167/icon/APTOPIX-DEM-2016-Sand_Horo2-removebg-preview_wdioef.png",
       src:

@@ -281,10 +281,6 @@
     margin-top: 0;
   }
 
-  .edit-icon img {
-    opacity: 0.7;
-  }
-
   .award {
     display: flex;
     min-height: 100px;
@@ -313,12 +309,6 @@
     font-size: 2rem;
     color: var(--dk-rd);
     margin: auto;
-  }
-
-  .categoryHeadingDiv p {
-    width: 100%;
-    margin: auto;
-    font-size: 0.95rem;
   }
 
   .categoryHeadingDiv {
@@ -390,12 +380,6 @@
       font-size: 2rem;
       color: var(--dk-rd);
       margin: auto;
-    }
-
-    .categoryHeadingDiv p {
-      width: 600px;
-      margin: auto;
-      font-size: 1.4rem;
     }
 
     .categoryHeadingDiv {
@@ -488,7 +472,7 @@
         <h2>Least Likely</h2>
         <div class="award">
           <div class="winner">
-            <img src={y[y.length - 1].winImg} alt="least electable" />
+            <img src={y[y.length - 1].loseImg} alt="least electable" />
           </div>
           <h3>{y[y.length - 1].candidateName}</h3>
         </div>
@@ -513,7 +497,7 @@
         <h2>Least Fav</h2>
         <div class="award">
           <div class="winner">
-            <img src={x[x.length - 1].winImg} alt="least electable" />
+            <img src={x[x.length - 1].loseImg} alt="least electable" />
           </div>
           <h3>{x[x.length - 1].candidateName}</h3>
         </div>
@@ -521,8 +505,6 @@
     </div>
     <div class="categoryHeadingDiv">
       <h2 class="categoryHeading">Full Results</h2>
-
-      <p>Edit candidate score by selecting the ➖ icon</p>
     </div>
     <table>
 
