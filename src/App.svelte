@@ -23,7 +23,7 @@
       loseImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573762942/cory-booker-removebg-preview_mqb4dt.png",
       winImg:
-        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676804/icon/AP_18235542761934-768x516-removebg-preview_uc82ph.png",
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573763843/lead_720_405-removebg-preview_jihwai.png",
       candidateName: "Cory Booker",
       src:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1572125016/candidates/Yz_PLR20_400x400_bm8ayo.jpg"
@@ -73,6 +73,17 @@
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1572125093/candidates/Pete_Buttigieg_utcjel.jpg"
     },
 
+    {
+      key: "klobuchar",
+      in_next_debate: true,
+      loseImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573764496/Election_2020_Amy_Klobuchar_67828-removebg-preview_gjanjh.png",
+      winImg:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573764481/amy-klobuchar-removebg-preview_nhxgsg.png",
+      candidateName: "Amy Klobuchar",
+      src:
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573764523/ak_njsbae.png"
+    },
     {
       key: "yang",
       in_next_debate: true,
