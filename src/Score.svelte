@@ -128,6 +128,15 @@
   .scoreContainer {
     background-color: var(--lt-gry);
   }
+  .submit {
+    margin: 3rem 0;
+    border: solid var(--lt-rd);
+  }
+
+  .svg-btn {
+    width: 24px;
+    height: 24px;
+  }
 
   .img {
     width: 40px;
@@ -154,27 +163,6 @@
     margin: 0.5rem 0.5rem 0.5rem 1rem;
   }
 
-  .submitP button {
-    background: none;
-    border: none;
-    /* font-size: 1.3rem; */
-    /* margin-top: 1.3rem; */
-    /* text-align: left; */
-    margin-bottom: 0;
-    border-bottom: solid;
-    font-size: unset;
-    margin-top: unset;
-  }
-
-  .showMoreBtn {
-    float: right;
-    margin-right: 2rem;
-    margin-top: 0;
-    opacity: 0.8;
-    font-style: italic;
-    font-size: 1rem;
-  }
-
   .submitSuccessP {
     text-align: center;
     color: var(--lt-red);
@@ -192,14 +180,11 @@
 
   table {
     border-spacing: 0px;
+    margin: 2rem auto;
   }
 
   .m-top {
     margin-top: 2rem;
-  }
-
-  p.m-top {
-    margin-bottom: 0;
   }
 
   td {
@@ -316,6 +301,45 @@
     height: auto;
   }
 
+  .beatingTrumpDiv,
+  .favoriteCandidatesDiv {
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+  }
+
+  .categoryHeadingDiv h2 {
+    width: 100%;
+    border-bottom: unset;
+    font-size: 2rem;
+    color: var(--dk-rd);
+    margin: auto;
+  }
+
+  .categoryHeadingDiv p {
+    width: 100%;
+    margin: auto;
+    font-size: 0.95rem;
+  }
+
+  .categoryHeadingDiv {
+    padding: 2rem;
+    background-color: #2f2f2f55;
+  }
+
+  .headingDiv {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    background-color: var(--blu);
+  }
+
+  .headingDiv h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    border-bottom: unset;
+  }
+
   @media (min-width: 600px) {
     .card {
       width: 50%;
@@ -338,10 +362,6 @@
       font-size: 1.2rem;
     }
 
-    .showMoreBtn {
-      margin-right: 15%;
-    }
-
     .m-top {
       margin-bottom: 0;
       margin: auto;
@@ -352,69 +372,158 @@
       text-align: center;
     }
   }
+
+  @media (min-width: 1000px) {
+    .beatingTrumpDiv,
+    .favoriteCandidatesDiv {
+      display: flex;
+      justify-content: space-between;
+      margin: auto;
+      max-width: 600px;
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+
+    .categoryHeadingDiv h2 {
+      width: 600px;
+      border-bottom: unset;
+      font-size: 2rem;
+      color: var(--dk-rd);
+      margin: auto;
+    }
+
+    .categoryHeadingDiv p {
+      width: 600px;
+      margin: auto;
+      font-size: 1.4rem;
+    }
+
+    .categoryHeadingDiv {
+      padding: 2rem;
+      background-color: #2f2f2f55;
+    }
+
+    .headingDiv {
+      width: 100%;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      padding-left: calc((100vw - 600px) / 2);
+      background-color: var(--blu);
+    }
+
+    .headingDiv h2 {
+      font-size: 2.5rem;
+      margin: 0;
+      border-bottom: unset;
+    }
+
+    .winner {
+      max-height: 100px;
+      overflow: hidden;
+    }
+
+    p.submitP {
+      width: 100%;
+      margin: initial;
+      text-align: left;
+      font-style: initial;
+      font-size: 1.4rem;
+    }
+
+    .submit {
+      margin: 3rem 0;
+      border: solid var(--lt-rd);
+    }
+
+    .submit button {
+      font-size: 1.6rem;
+    }
+
+    table {
+      margin: 2rem auto;
+    }
+    .scoreContainer {
+      padding-bottom: 2rem;
+    }
+  }
 </style>
 
 <div class="scoreContainer">
-  <h2>Your 2020 Score Card</h2>
   <Hero />
 
   {#if submit === false}
-    <p class="submitP">
-      Submit score to see how your scores comapre to other users
-    </p>
-    <p class="submitP">
-      Look good?
-      <button
-        on:click={() => {
-          console.log('currentScores are ', currentScores);
-          onSurveySubmit(sorted.x, sorted.y, userInfo, currentScores);
-          submit = true;
-        }}>
-        Submit Score
-      </button>
-    </p>
+    <div class="headingDiv">
+      <h2 class="categoryHeading">Your 2020 Score Card</h2>
 
-    <div class="card">
-      <h2>Most Likely to Beat Trump</h2>
-      <div class="award">
-        <div class="winner">
-          <img src={y[0].winImg} alt="most electable" />
-        </div>
-        <h3>{y[0].candidateName}</h3>
+      <p class="submitP">
+        Submit score and see how your scores comapre to others
+      </p>
+      <p>These scores look right good?</p>
+      <div class="submit">
+        <button
+          on:click={() => {
+            console.log('currentScores are ', currentScores);
+            onSurveySubmit(sorted.x, sorted.y, userInfo, currentScores);
+            submit = true;
+          }}>
+          Submit Score
+        </button>
       </div>
     </div>
-
-    <div class="card">
-      <h2>Least Likely</h2>
-      <div class="award">
-        <div class="winner">
-          <img src={y[y.length - 1].winImg} alt="least electable" />
+    <div class="categoryHeadingDiv">
+      <h2 class="categoryHeading">Who Can Beat Trump?</h2>
+    </div>
+    <div class="beatingTrumpDiv">
+      <div class="card">
+        <h2>Most Likely</h2>
+        <div class="award">
+          <div class="winner">
+            <img src={y[0].winImg} alt="most electable" />
+          </div>
+          <h3>{y[0].candidateName}</h3>
         </div>
-        <h3>{y[y.length - 1].candidateName}</h3>
+      </div>
+
+      <div class="card">
+        <h2>Least Likely</h2>
+        <div class="award">
+          <div class="winner">
+            <img src={y[y.length - 1].winImg} alt="least electable" />
+          </div>
+          <h3>{y[y.length - 1].candidateName}</h3>
+        </div>
+      </div>
+
+    </div>
+    <div class="categoryHeadingDiv">
+      <h2 class="categoryHeading">Who Do You Like?</h2>
+    </div>
+    <div class="favoriteCandidatesDiv">
+      <div class="card">
+        <h2>Your Fav</h2>
+        <div class="award">
+          <div class="winner">
+            <img src={x[0].winImg} alt="most electable" />
+          </div>
+          <h3>{x[0].candidateName}</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Least Fav</h2>
+        <div class="award">
+          <div class="winner">
+            <img src={x[x.length - 1].winImg} alt="least electable" />
+          </div>
+          <h3>{x[x.length - 1].candidateName}</h3>
+        </div>
       </div>
     </div>
+    <div class="categoryHeadingDiv">
+      <h2 class="categoryHeading">Full Results</h2>
 
-    <div class="card">
-      <h2>Your Favorite Candidate</h2>
-      <div class="award">
-        <div class="winner">
-          <img src={x[0].winImg} alt="most electable" />
-        </div>
-        <h3>{x[0].candidateName}</h3>
-      </div>
+      <p>Edit candidate score by selecting the ➖ icon</p>
     </div>
-
-    <div class="card">
-      <h2>Least Favorite</h2>
-      <div class="award">
-        <div class="winner">
-          <img src={x[x.length - 1].winImg} alt="least electable" />
-        </div>
-        <h3>{x[x.length - 1].candidateName}</h3>
-      </div>
-    </div>
-
-    <p class="m-top">Edit candidate score by selecting the ➖ icon</p>
     <table>
 
       <tr>
@@ -487,9 +596,18 @@
                       editModeY = false;
                       currentUpdate = null;
                     }}>
-                    <img
-                      src="https://res.cloudinary.com/dscjol9s7/image/upload/v1572817267/icon/add-24px_hz5evx.svg"
-                      alt="" />
+                    <div class="svg-btn">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path
+                          fill="#2f2f2f"
+                          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                      </svg>
+                    </div>
                   </button>
                 {:else}
                   <button
@@ -499,10 +617,20 @@
                       editModeY = true;
                       currentUpdate = i;
                     }}>
-                    <img
-                      src="https://res.cloudinary.com/dscjol9s7/image/upload/v1572817238/icon/remove-24px_ik72gt.svg"
-                      alt="
-                      " />
+                    <div class="svg-btn">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24">
+                        <path
+                          d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9
+                          2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5
+                          5H2v2h12z"
+                          fill="#e0474c" />
+                        <path fill="none" d="M0 0h24v24H0z" />
+                      </svg>
+                    </div>
                   </button>
                 {/if}
               </div>
@@ -512,11 +640,6 @@
 
       </tbody>
     </table>
-    {#if !showFullY}
-      <button class="showMoreBtn" on:click={viewAllY}>Show More</button>
-    {:else}
-      <button class="showMoreBtn" on:click={viewMinY}>Show Less</button>
-    {/if}
 
     <table class="m-top">
       <tr>
@@ -583,11 +706,18 @@
                       editModeX = false;
                       currentUpdate = null;
                     }}>
-
-                    <img
-                      src="https://res.cloudinary.com/dscjol9s7/image/upload/v1572817267/icon/add-24px_hz5evx.svg"
-                      alt="add" />
-
+                    <div class="svg-btn">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path
+                          fill="#2f2f2f"
+                          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                      </svg>
+                    </div>
                   </button>
                 {:else}
                   <button
@@ -598,11 +728,20 @@
                       editModeX = true;
                       currentUpdate = i;
                     }}>
-
-                    <img
-                      src="https://res.cloudinary.com/dscjol9s7/image/upload/v1572817238/icon/remove-24px_ik72gt.svg"
-                      alt="edit" />
-
+                    <div class="svg-btn">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24">
+                        <path
+                          d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9
+                          2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5
+                          5H2v2h12z"
+                          fill="#e0474c" />
+                        <path fill="none" d="M0 0h24v24H0z" />
+                      </svg>
+                    </div>
                   </button>
                 {/if}
               </div>
@@ -611,23 +750,6 @@
         {/each}
       </tbody>
     </table>
-
-    {#if !showFullX}
-      <button class="showMoreBtn" on:click={viewAllX}>Show More</button>
-    {:else}
-      <button class="showMoreBtn" on:click={viewMinX}>Show Less</button>
-    {/if}
-
-    <div class="submit">
-      <button
-        on:click={() => {
-          console.log('currentScores are ', currentScores);
-          onSurveySubmit(sorted.x, sorted.y, userInfo, currentScores);
-          submit = true;
-        }}>
-        Submit Score
-      </button>
-    </div>
   {:else}
     <p in:fade={{ duration: 200 }} class="submitSuccessP">
       Your response has been recorded!

@@ -7,7 +7,7 @@
   import Score from "./Score.svelte";
   import Completed from "./Completed.svelte";
   import Board from "./Board.svelte";
-  import Popup from "./Popup.svelte";
+  import Landing from "./Landing.svelte";
   import Instructions from "./Instructions.svelte";
 
   //array of candidate objects
@@ -188,6 +188,18 @@
   @media (min-width: 800px) {
     .scatterplotSection {
       margin-top: 5vh;
+    }
+  }
+  @media (min-width: 1025px) {
+    .scatterplotSection {
+      max-width: 425px;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    .scatterplotSection {
+      width: 500px;
+      max-width: unset;
     }
   }
 </style>

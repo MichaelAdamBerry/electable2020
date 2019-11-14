@@ -1,12 +1,12 @@
 <script>
   import { onMount } from "svelte";
-  import { auth, googleProvider } from "./firebase";
+  import { auth, googleProvider } from "./firebase.js";
   import { authState } from "rxfire/auth";
   import { sortX, sortY } from "./helpers.svelte";
   import Login from "./Login.svelte";
   import Plot from "./Plot.svelte";
   import TopBar from "./TopBar.svelte";
-  import Popup from "./Popup.svelte";
+  import Landing from "./Landing.svelte";
   import Score from "./Score.svelte";
   import DropDown from "./DropDown.svelte";
 
@@ -21,7 +21,7 @@
       key: "booker",
       in_next_debate: true,
       winImg:
-        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573076141/icon/AP_18235542761934-768x516-removebg-preview_uc82ph.png",
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676804/icon/AP_18235542761934-768x516-removebg-preview_uc82ph.png",
       candidateName: "Cory Booker",
       src:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1572125016/candidates/Yz_PLR20_400x400_bm8ayo.jpg"
@@ -31,7 +31,7 @@
       in_next_debate: true,
       candidateName: "Joe Biden",
       winImg:
-        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573076438/icon/joe-cool-removebg-preview_wgsqc2.png",
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676704/icon/joe-cool-removebg-preview_heqqiw.png",
       src:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1572124964/candidates/Biden_Square_wecwag.png"
     },
@@ -40,7 +40,7 @@
       in_next_debate: true,
       candidateName: "Elizabeth Warren",
       winImg:
-        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573075725/icon/960x0-removebg-preview_goey5e.png",
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676232/1000x-1-removebg-preview_esssmz.png",
       src:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1572125725/candidates/RUqnwGsy_400x400_k9ag5f.jpg"
     },
@@ -49,7 +49,7 @@
       in_next_debate: true,
       candidateName: "Kamala Harris",
       winImg:
-        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573076821/icon/rs-kamala-harris-2e88a6ad-c1ad-4e59-b091-5b25c2f39163-removebg-preview_hgfqrv.png",
+        "https://res.cloudinary.com/dscjol9s7/image/upload/v1573676422/rs-kamala-harris-2e88a6ad-c1ad-4e59-b091-5b25c2f39163-removebg-preview_ffxdza.png",
       src:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1572125344/candidates/Kamala_Harris_uy0eaj.png"
     },
@@ -170,6 +170,7 @@
   //By default only the candidates that have qualified for the next debate are shown
   onMount(() => {
     data = data_full.filter(d => d.in_next_debate);
+    loaded = true;
   });
 
   $: showDropDown = false;
@@ -228,7 +229,7 @@
 </svelte:head>
 <body>
   {#if !user}
-    <Login {login} />
+    <Login {login} {loaded} />
   {:else}
     <main>
       <TopBar {status} {toggleDropDown} />
@@ -236,7 +237,7 @@
         <DropDown {signOut} {user} />
       {/if}
       {#if status === null}
-        <Popup {status} {updateSurvey} {data} />
+        <Landing {status} {updateSurvey} {data} />
       {:else if status === 'started'}
         <div>
           <Plot

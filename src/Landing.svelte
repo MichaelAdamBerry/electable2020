@@ -26,15 +26,12 @@
   }
 
   button {
-    margin-top: 1rem;
-    width: 150px;
-
-    height: 40px;
-    color: #2f2f2f;
-    font-size: 1.3rem;
-    font-weight: 600;
+    width: 80%;
+    height: 60px;
     background-color: var(--blu);
     border: none;
+    font-size: 1.4rem;
+    margin-top: 1rem;
   }
 
   button.aboutBtn {
