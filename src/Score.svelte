@@ -156,8 +156,6 @@
   }
 
   .submitP {
-    text-align: right;
-    font-style: italic;
     opacity: 0.8;
     margin-left: 1rem;
     margin: 0.5rem 0.5rem 0.5rem 1rem;
@@ -181,10 +179,6 @@
   table {
     border-spacing: 0px;
     margin: 2rem auto;
-  }
-
-  .m-top {
-    margin-top: 2rem;
   }
 
   td {
@@ -281,15 +275,12 @@
     margin-top: 0;
   }
 
-  .award {
-    display: flex;
-    min-height: 100px;
-  }
-
-  .award h3 {
-    margin-top: initial;
-    margin-bottom: initial;
-    line-height: 100px;
+  .award h3,
+  .card h2,
+  .winner {
+    max-width: 150px;
+    text-align: center;
+    margin: 2rem auto;
   }
 
   .winner img {
@@ -306,6 +297,7 @@
   .categoryHeadingDiv h2 {
     width: 100%;
     border-bottom: unset;
+    text-align: center;
     font-size: 2rem;
     color: var(--dk-rd);
     margin: auto;
@@ -326,7 +318,7 @@
 
   .headingDiv h2 {
     font-size: 2.5rem;
-    margin: 0;
+    margin: auto;
     border-bottom: unset;
   }
 
@@ -389,16 +381,16 @@
 
     .headingDiv {
       width: 100%;
-      padding-top: 2rem;
+      /* padding-top: 2rem;
       padding-bottom: 2rem;
       padding-left: calc((100vw - 600px) / 2);
-      background-color: var(--blu);
+      background-color: var(--blu); */
     }
 
     .headingDiv h2 {
       font-size: 2.5rem;
-      margin: 0;
-      border-bottom: unset;
+      /* margin: 0;
+      border-bottom: unset; */
     }
 
     .winner {
@@ -415,7 +407,7 @@
     }
 
     .submit {
-      margin: 3rem 0;
+      margin: 3rem auto;
       border: solid var(--lt-rd);
     }
 
@@ -439,10 +431,6 @@
     <div class="headingDiv">
       <h2 class="categoryHeading">Your 2020 Score Card</h2>
 
-      <p class="submitP">
-        Submit score and see how your scores comapre to others
-      </p>
-      <p>These scores look right good?</p>
       <div class="submit">
         <button
           on:click={() => {
