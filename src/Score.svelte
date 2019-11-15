@@ -504,12 +504,12 @@
       </div>
     </div>
     <div class="categoryHeadingDiv">
-      <h2 class="categoryHeading">Full Results</h2>
+      <h2 class="categoryHeading">All Candidate Rankings</h2>
     </div>
     <table>
 
       <tr>
-        <th>Most Electable</th>
+        <th>How Likely to Beat Trump?</th>
         <th>％</th>
         <th>✏️</th>
       </tr>
@@ -623,9 +623,9 @@
       </tbody>
     </table>
 
-    <table class="m-top">
+    <table>
       <tr>
-        <th>By Favorbility</th>
+        <th>How Much You Approve</th>
         <th>%</th>
         <th>✏️</th>
       </tr>

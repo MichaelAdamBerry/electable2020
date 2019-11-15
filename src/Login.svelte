@@ -41,7 +41,7 @@
   }
 
   button {
-    width: 200px;
+    min-width: 200px;
     height: 60px;
     background-color: var(--lt-rd);
     border: none;
@@ -92,6 +92,6 @@
       Rank candidates, see recent polls, and help us figure out who the best
       candidate to take on Donal Trump
     </p>
-    <button on:click={login}>Login With Google</button>
+    <button on:click={login}>Continue With Google</button>
   </div>
 </FullModal>
