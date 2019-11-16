@@ -83,7 +83,7 @@
           metric to explore.
         </p>
         <p>
-          In 2008, Barak Obama was seen by many as unelectable and the thought
+          In 2008, Barack Obama was seen by many as unelectable and the thought
           of Donald Trump
           <span class="italic">actually</span>
           winning the presidency in 2016 seemed unthinkable to many a pundit and
@@ -107,7 +107,7 @@
         <p>
           Grade candidates by positioning them on an area of a grid. The Y-Axis
           represents how likely they would be to beat Trump and the X-Axis
-          represents your opinion of their policy goals..
+          represents your opinion of their policy goals.
         </p>
       </div>
       {#if about}
