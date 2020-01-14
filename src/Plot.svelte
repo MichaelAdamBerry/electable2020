@@ -212,7 +212,8 @@
         {#if status === null}
           <img
             src="https://res.cloudinary.com/dscjol9s7/image/upload/v1572460254/candidates/bidenberniewarren_hcjfwl.svg"
-            alt="graphic of candidates" />
+            alt="graphic of candidates"
+            crossorigin="anonymous" />
         {:else}
           <svg
             class="filteredOverlay"
@@ -311,7 +312,11 @@
             in:fly={{ duration: 600, x: w / 2 - reimg.x, y: reimg.y * -1 - 100, easing: quartInOut, opacity: 1 }}
             class="renderedDiv"
             style="transform: translate({reimg.x}px, {reimg.y}px);">
-            <img class="renderedImg" src={reimg.src} alt={reimg.n} />
+            <img
+              class="renderedImg"
+              src={reimg.src}
+              alt={reimg.n}
+              crossorigin="anonymous" />
           </div>
         {/each}
         <Board />

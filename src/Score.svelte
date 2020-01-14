@@ -450,7 +450,7 @@
         <h2>Most Likely</h2>
         <div class="award">
           <div class="winner">
-            <img src={y[0].winImg} alt="most electable" />
+            <img src={y[0].winImg} alt="most electable" crossorigin="anonymous"/>
           </div>
           <h3>{y[0].candidateName}</h3>
         </div>
@@ -460,7 +460,7 @@
         <h2>Least Likely</h2>
         <div class="award">
           <div class="winner">
-            <img src={y[y.length - 1].loseImg} alt="least electable" />
+            <img src={y[y.length - 1].loseImg} alt="least electable" crossorigin="anonymous" />
           </div>
           <h3>{y[y.length - 1].candidateName}</h3>
         </div>
@@ -475,7 +475,7 @@
         <h2>Your Fav</h2>
         <div class="award">
           <div class="winner">
-            <img src={x[0].winImg} alt="most electable" />
+            <img src={x[0].winImg} alt="most electable" crossorigin="anonymous" />
           </div>
           <h3>{x[0].candidateName}</h3>
         </div>
@@ -485,7 +485,7 @@
         <h2>Least Fav</h2>
         <div class="award">
           <div class="winner">
-            <img src={x[x.length - 1].loseImg} alt="least electable" />
+            <img src={x[x.length - 1].loseImg} alt="least electable" crossorigin="anonymous" />
           </div>
           <h3>{x[x.length - 1].candidateName}</h3>
         </div>
@@ -510,7 +510,7 @@
             <td>
               <div class="candidate">
                 <div class="img">
-                  <img src={d.src} alt="headshot for {d.candidateName}" />
+                  <img src={d.src} alt="headshot for {d.candidateName}" crossorigin="anonymous"/>
                 </div>
                 <p>{d.candidateName.slice(d.candidateName.indexOf(' ') + 1)}</p>
               </div>

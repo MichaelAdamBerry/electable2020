@@ -19,6 +19,7 @@
   let data_full = [
     {
       key: "booker",
+      dropped_out: true,
       in_next_debate: true,
       loseImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573762942/cory-booker-removebg-preview_mqb4dt.png",
@@ -30,6 +31,7 @@
     },
     {
       key: "biden",
+      dropped_out: false,
       in_next_debate: true,
       candidateName: "Joe Biden",
       loseImg:
@@ -41,6 +43,7 @@
     },
     {
       key: "warren",
+      dropped_out: false,
       in_next_debate: true,
       candidateName: "Elizabeth Warren",
       loseImg:
@@ -52,6 +55,7 @@
     },
     {
       key: "harris",
+      dropped_out: true,
       in_next_debate: true,
       candidateName: "Kamala Harris",
       loseImg:
@@ -63,6 +67,7 @@
     },
     {
       key: "buttigieg",
+      dropped_out: false,
       in_next_debate: true,
       candidateName: "Pete Buttigieg",
       loseImg:
@@ -75,6 +80,7 @@
 
     {
       key: "klobuchar",
+      dropped_out: false,
       in_next_debate: true,
       loseImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573764496/Election_2020_Amy_Klobuchar_67828-removebg-preview_gjanjh.png",
@@ -86,6 +92,7 @@
     },
     {
       key: "yang",
+      dropped_out: false,
       in_next_debate: true,
       loseImg:
         "https://res.cloudinary.com/dscjol9s7/image/upload/v1573762975/democratic-presidential-candidate-former-tech-executive-news-photo-1568338605-removebg-preview_gfxrjd.png",
@@ -98,6 +105,7 @@
 
     {
       key: "gabbard",
+      dropped_out: false,
       in_next_debate: true,
       candidateName: "Tulsi Gabbard",
       loseImg:
@@ -109,6 +117,7 @@
     },
     {
       key: "castro",
+      dropped_out: true,
       in_next_debate: false,
       candidateName: "Julian Castro",
       winImg:
@@ -119,6 +128,7 @@
 
     {
       key: "williamson",
+      dropped_out: true,
       in_next_debate: false,
       candidateName: "Marianne Williamson",
       winImg:
@@ -128,6 +138,7 @@
     },
     {
       key: "steyer",
+      dropped_out: false,
       in_next_debate: true,
       candidateName: "Tom Steyer",
       loseImg:
@@ -139,6 +150,7 @@
     },
     {
       key: "sanders",
+      dropped_out: false,
       in_next_debate: true,
       candidateName: "Bernie Sanders",
       loseImg:
@@ -150,6 +162,7 @@
     },
     {
       key: "messam",
+      dropped_out: true,
       in_next_debate: false,
       candidateName: "Wayne Messam",
       winImg:
@@ -159,6 +172,7 @@
     },
     {
       key: "delaney",
+      dropped_out: false,
       in_next_debate: false,
       candidateName: "John Delaney",
       winImg:
@@ -168,6 +182,7 @@
     },
     {
       key: "bullok",
+      dropped_out: true,
       in_next_debate: false,
       candidateName: "Steve Bullok",
       winImg:
@@ -177,6 +192,7 @@
     },
     {
       key: "bennet",
+      dropped_out: false,
       in_next_debate: false,
       candidateName: "Michael Bennet",
       winImg:
@@ -186,6 +202,7 @@
     },
     {
       key: "sestak",
+      dropped_out: true,
       in_next_debate: false,
       candidateName: "Joe Sestak",
       winImg:
@@ -198,7 +215,7 @@
   //TODO Fetch current percentage score and write to $: currentValues
   //By default only the candidates that have qualified for the next debate are shown
   onMount(() => {
-    data = data_full.filter(d => d.in_next_debate);
+    data = data_full.filter(d => d.in_next_debate && d.dropped_out !== true);
     loaded = true;
   });
 
@@ -207,7 +224,7 @@
 
   const unsubscribe = authState(auth).subscribe(u => {
     user = u;
-    console.log(user);
+    //console.log(user);
   });
 
   function login() {
@@ -221,10 +238,10 @@
   function toggleDropDown() {
     if (!showDropDown) {
       showDropDown = true;
-      console.log("showing drop down", showDropDown);
+      // console.log("showing drop down", showDropDown);
     } else {
       showDropDown = false;
-      console.log("not showing drop down", showDropDown);
+      // console.log("not showing drop down", showDropDown);
     }
   }
 
