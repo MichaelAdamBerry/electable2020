@@ -1,6 +1,6 @@
 <script>
   import { fade } from "svelte/transition";
-  import FullModal from "./FullModal.svelte";
+  import FullModal from "../FullModal.svelte";
   import LandingAnimation from "./LandingAnimation.svelte";
   export let login;
   export let loaded;
@@ -89,8 +89,8 @@
     </div>
     <h4>Who Can Beat Trump?</h4>
     <p>
-      Rank candidates, see recent polls, and help us figure out who the best
-      candidate to take on Donal Trump
+      Rank candidates to help us figure out who the best candidate to take on
+      Donald Trump and understand "electability"
     </p>
     <button on:click={login}>Continue With Google</button>
   </div>

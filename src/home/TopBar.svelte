@@ -1,8 +1,8 @@
 <script>
   import { onMount, beforeUpdate } from "svelte";
-
   export let status;
   export let toggleDropDown;
+
   $: name = "Eleftable";
 
   onMount(() => {

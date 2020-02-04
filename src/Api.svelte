@@ -67,7 +67,6 @@
 
   export function onSurveySubmit(xArr, yArr, userInfo, currentScores) {
     //loops y array gets the last name to pull value from database
-
     xArr.forEach(async candidate => {
       let key = candidate.key;
       let userValues = candidate.score;

@@ -1,19 +1,31 @@
 <script>
   import { onMount } from "svelte";
+
+  //import firebase authentication and database tools
   import { auth, googleProvider } from "./firebase.js";
   import { authState } from "rxfire/auth";
+
+  //sorting functions to handle candidate rankings
   import { sortX, sortY } from "./helpers.svelte";
-  import Login from "./Login.svelte";
-  import Plot from "./Plot.svelte";
-  import TopBar from "./TopBar.svelte";
-  import Landing from "./Landing.svelte";
-  import Score from "./Score.svelte";
-  import DropDown from "./DropDown.svelte";
+
+  //home components
+  import Login from "./home/Login.svelte";
+  import TopBar from "./home/TopBar.svelte";
+  import Landing from "./home/Landing.svelte";
+  import DropDown from "./home/DropDown.svelte";
+
+  //survey components
+  import Plot from "./survey/Plot.svelte";
+
+  //results
+  import Score from "./results/Score.svelte";
 
   let loaded = false;
   $: sorted = { x: [], y: [] };
   $: status = null;
   $: renderedImages = [];
+  $: showDropDown = false;
+  $: user = false;
 
   let data;
   let data_full = [
@@ -212,19 +224,15 @@
     }
   ];
 
-  //TODO Fetch current percentage score and write to $: currentValues
-  //By default only the candidates that have qualified for the next debate are shown
+  //filter out candidates who have dropped out when component mounts
   onMount(() => {
     data = data_full.filter(d => d.in_next_debate && d.dropped_out !== true);
     loaded = true;
   });
 
-  $: showDropDown = false;
-  $: user = false;
-
+  // auth, login, loguout fns
   const unsubscribe = authState(auth).subscribe(u => {
     user = u;
-    //console.log(user);
   });
 
   function login() {
@@ -286,13 +294,7 @@
         <Landing {status} {updateSurvey} {data} />
       {:else if status === 'started'}
         <div>
-          <Plot
-            {data}
-            {sorted}
-            {status}
-            {renderedImages}
-            {data}
-            {updateSurvey} />
+          <Plot {data} {sorted} {status} {renderedImages} {updateSurvey} />
         </div>
       {:else if status === 'completed'}
         <Score {sorted} {sortX} {sortY} {user} />

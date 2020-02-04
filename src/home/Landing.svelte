@@ -1,8 +1,8 @@
 <script>
   import { fade, fly } from "svelte/transition";
-  import Modal from "./Modal.svelte";
-  import Hero from "./Hero.svelte";
-  import FullModal from "./FullModal.svelte";
+  // import Modal from "./Modal.svelte";
+  import Hero from "../Hero.svelte";
+  // import FullModal from "./FullModal.svelte";
   import About from "./About.svelte";
 
   export let updateSurvey;
@@ -74,28 +74,28 @@
   {#if status === null}
     <div class="welcomeDiv">
       <div class="title">
-        <h3>Here's What Matters : Who Can Beat Donald Trump?</h3>
+        <h3>What make a candidate electable?</h3>
       </div>
 
       <div in:fade={{ duration: 300, delay: 400 }}>
         <p>
-          Gauging the electability of a candidate is a problematic but important
+          Gauging the electability of a candidate is a tricky but important
           metric to explore.
         </p>
         <p>
-          In 2008, Barack Obama was seen by many as unelectable and the thought
-          of Donald Trump
-          <span class="italic">actually</span>
-          winning the presidency in 2016 seemed unthinkable to many a pundit and
-          insider.
+          In 2008, before winning the Iowa Caucus, Barack Obama was thought to
+          be unelectable in a general election. In 2016, some political pundits
+          said there was no way Hillary Clinton could lose to Donald Trump. So
+          as we enter the 2020 primary, maybe Democratic voters shouldn't worry
+          so much about who they imagine to be electable or not and just vote
+          for the candidate they agree with the most.
         </p>
         <div in:fade={{ duration: 300, delay: 1000 }}>
           <p>
-            However -- that some candidates are likely to fare better than
-            others in a head to head match up against President Trump is
-            undeniable, especially when one considers that it will likely be
-            voters from only a handful of states which will decide the outcome
-            of the 2020 election.
+            On the other hand -- that some candidates are likely to fare better
+            than others in a head to head match up against President Trump is
+            undeniable, especially given that the winner of Electoral College
+            will likely be decided by voters from a handful of states.
           </p>
         </div>
       </div>

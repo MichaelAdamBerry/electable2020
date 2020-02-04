@@ -1,29 +1,28 @@
 <script>
-  import {
-    interpolateRdBu,
-    interpolateGreys,
-    interpolateGreens
-  } from "d3-scale-chromatic";
   import { rgb } from "d3-color";
   import { scaleLinear } from "d3-scale";
   import { interpolateHcl } from "d3-interpolate";
+
   import { onMount } from "svelte";
   import { quintOut } from "svelte/easing";
   import { fade, fly, scale } from "svelte/transition";
+
   import {
     onSurveySubmit,
     getCandidateValuesById,
     resetCandidateValues
-  } from "./Api.svelte";
-  import FullModal from "./FullModal.svelte";
+  } from "../Api.svelte";
+
+  import FullModal from "../FullModal.svelte";
   import Results from "./Results.svelte";
 
-  import Hero from "./Hero.svelte";
-  export let sorted;
+  import Hero from "../Hero.svelte";
 
+  export let sorted;
   export let sortX;
   export let sortY;
   export let user;
+
   let currentScores = {};
 
   onMount(async () => {
@@ -79,7 +78,9 @@
 
   $: showFullX = true;
   $: showFullY = true;
+
   $: uid = user.uid;
+
   $: x = showFullX ? sorted.x : sorted.x.splice(0, 3);
   $: y = showFullY ? sorted.y : sorted.y.splice(0, 3);
 
@@ -153,12 +154,6 @@
   .candidate p {
     margin: 0;
     margin-left: 1rem;
-  }
-
-  .submitP {
-    opacity: 0.8;
-    margin-left: 1rem;
-    margin: 0.5rem 0.5rem 0.5rem 1rem;
   }
 
   .submitSuccessP {
@@ -337,22 +332,6 @@
     .submit {
       width: 200px;
     }
-
-    .submitP {
-      width: 70%;
-      margin: auto;
-      font-size: 1.2rem;
-    }
-
-    .m-top {
-      margin-bottom: 0;
-      margin: auto;
-      margin-top: 5rem;
-      font-size: 1.3rem;
-      font-style: italic;
-      color: #2f2f2f;
-      text-align: center;
-    }
   }
 
   @media (min-width: 1000px) {
@@ -396,14 +375,6 @@
     .winner {
       max-height: 100px;
       overflow: hidden;
-    }
-
-    p.submitP {
-      width: 100%;
-      margin: initial;
-      text-align: left;
-      font-style: initial;
-      font-size: 1.4rem;
     }
 
     .submit {
@@ -450,7 +421,10 @@
         <h2>Most Likely</h2>
         <div class="award">
           <div class="winner">
-            <img src={y[0].winImg} alt="most electable" crossorigin="anonymous"/>
+            <img
+              src={y[0].winImg}
+              alt="most electable"
+              crossorigin="anonymous" />
           </div>
           <h3>{y[0].candidateName}</h3>
         </div>
@@ -460,7 +434,10 @@
         <h2>Least Likely</h2>
         <div class="award">
           <div class="winner">
-            <img src={y[y.length - 1].loseImg} alt="least electable" crossorigin="anonymous" />
+            <img
+              src={y[y.length - 1].loseImg}
+              alt="least electable"
+              crossorigin="anonymous" />
           </div>
           <h3>{y[y.length - 1].candidateName}</h3>
         </div>
@@ -475,7 +452,10 @@
         <h2>Your Fav</h2>
         <div class="award">
           <div class="winner">
-            <img src={x[0].winImg} alt="most electable" crossorigin="anonymous" />
+            <img
+              src={x[0].winImg}
+              alt="most electable"
+              crossorigin="anonymous" />
           </div>
           <h3>{x[0].candidateName}</h3>
         </div>
@@ -485,7 +465,10 @@
         <h2>Least Fav</h2>
         <div class="award">
           <div class="winner">
-            <img src={x[x.length - 1].loseImg} alt="least electable" crossorigin="anonymous" />
+            <img
+              src={x[x.length - 1].loseImg}
+              alt="least electable"
+              crossorigin="anonymous" />
           </div>
           <h3>{x[x.length - 1].candidateName}</h3>
         </div>
@@ -510,7 +493,10 @@
             <td>
               <div class="candidate">
                 <div class="img">
-                  <img src={d.src} alt="headshot for {d.candidateName}" crossorigin="anonymous"/>
+                  <img
+                    src={d.src}
+                    alt="headshot for {d.candidateName}"
+                    crossorigin="anonymous" />
                 </div>
                 <p>{d.candidateName.slice(d.candidateName.indexOf(' ') + 1)}</p>
               </div>

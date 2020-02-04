@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { scaleLinear } from "d3-scale";
-  import Board from "./Board.svelte";
+  import Board from "../survey/Board.svelte";
   export let sorted;
   export let currentScores;
   //Shows board for each candidate with user data and global data

@@ -2,21 +2,22 @@
   import { onMount } from "svelte";
   import { fly, scale, fade, blur } from "svelte/transition";
   import { scaleLinear } from "d3-scale";
-  import { sortX, sortY } from "./helpers.svelte";
+  import { sortX, sortY } from "../helpers.svelte";
   import { elasticOut, quartInOut } from "svelte/easing";
-  import Score from "./Score.svelte";
-  import Completed from "./Completed.svelte";
+  import Score from "../results/Score.svelte";
   import Board from "./Board.svelte";
-  import Landing from "./Landing.svelte";
+  // import Landing from "./Landing.svelte";
   import Instructions from "./Instructions.svelte";
 
-  //array of candidate objects
   export let data;
-
   export let status;
+
   export let renderedImages;
+
   export let updateSurvey;
+
   export let sorted;
+
   // reactive variable to track the active candidate by their index in data array.
   $: i = 0;
   $: active = data[i] ? data[i] : data[0];
